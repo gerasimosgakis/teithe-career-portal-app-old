@@ -39,14 +39,13 @@ class Dashboard extends Component {
           <div>
             <p className="lead text-muted">
               Welcome{" "}
-              <Link to={`/profiles-by-handle/${profile[0].handle}`}>
-                {profile[0].handle[0].toUpperCase() +
-                  profile[0].handle.substr(1)}
+              <Link to={`/profiles-by-handle/${profile.handle}`}>
+                {profile.handle[0].toUpperCase() + profile.handle.substr(1)}
               </Link>
             </p>
             <ProfileActions />
-            <Experience experience={profile[0].expData} user={user.username} />
-            <Education education={profile[0].eduData} user={user.username} />
+            <Experience experience={profile.expData} user={user.username} />
+            <Education education={profile.eduData} user={user.username} />
             {/* TODO: exp and edu */}
             <div style={{ marginBottom: "60px" }}>
               <button onClick={this.onDeleteClick} className="btn btn-danger">

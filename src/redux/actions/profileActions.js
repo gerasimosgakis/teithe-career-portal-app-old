@@ -11,6 +11,7 @@ import gravatar from "gravatar";
 
 // Get current profile
 export const getCurrentProfile = id => async dispatch => {
+  console.log(id);
   dispatch(setProfileLoading());
 
   try {
@@ -18,9 +19,10 @@ export const getCurrentProfile = id => async dispatch => {
       "teithe-career-portal-api",
       `/profiles/${id}`
     );
+    console.log(profiles);
     dispatch({
       type: GET_PROFILE,
-      payload: profiles.length > 0 ? { ...profiles } : {}
+      payload: profiles
     });
     console.log(profiles);
   } catch (err) {
@@ -34,11 +36,11 @@ export const getCurrentProfile = id => async dispatch => {
 // Get profile by handle
 export const getProfileByHandle = handle => async dispatch => {
   dispatch(setProfileLoading());
-
+  console.log(handle);
   try {
     const profiles = await API.get(
       "teithe-career-portal-api",
-      `/profiles-by-handle/${handle}`
+      `/profiles/handle/${handle}`
     );
     console.log(profiles);
     dispatch({
@@ -64,6 +66,7 @@ export const createProfile = (
 ) => async dispatch => {
   console.log(typeof profileData.skills, profileData);
   //profileData.skills = profileData.skills ? profileData.skills.split(",") : [];
+  profileData.id = user;
   if (profileData.skills && typeof profileData.skills === "string") {
     profileData.skills = profileData.skills.split(",");
   } else if (profileData.skills && typeof profileData.skills === "object") {

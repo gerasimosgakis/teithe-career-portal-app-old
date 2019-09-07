@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link, withRouter } from "react-router-dom";
 
-import logo from "../../logo_transparent.png";
+import logo from "../../logo_tei.jpg";
 import { connect } from "react-redux";
 import { loginSavedUser } from "../../redux/actions/authActions";
 class Landing extends Component {
@@ -38,7 +38,8 @@ class Landing extends Component {
         </div>
         <div className="landing__slogan mt-4">
           <p className="landing__slogan-text lead-text">
-            Meet other developers, code together, get better
+            Αλεξάνδρειο Τεχνολογικό Εκπαιδευτικό Ίδρυμα Θεσσαλονίκης - Career
+            Portal
           </p>
           {/* <Link to="/register" className="btn btn-lg btn-info mr-2">
             Sign Up
